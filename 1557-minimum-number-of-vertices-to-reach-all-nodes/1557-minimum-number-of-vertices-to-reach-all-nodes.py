@@ -6,10 +6,8 @@ class Solution(object):
         :rtype: List[int]
         """
         
-        graph = [[] for _ in range(n)]
         deg = [0] * n
         for f, t in edges:
-            graph[f].append(t)
             deg[t] += 1
             
         result = [i for i in range(n) if deg[i] == 0]
