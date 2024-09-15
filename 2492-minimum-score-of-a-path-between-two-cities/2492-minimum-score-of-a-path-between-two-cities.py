@@ -11,7 +11,6 @@ class Solution(object):
             graph[u].append((v, d))
             graph[v].append((u, d))
 
-        # BFS로 최소 경로 점수 탐색
         result = float('inf')
         visited = set([1])
         q = deque([1])
