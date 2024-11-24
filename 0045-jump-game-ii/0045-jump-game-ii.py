@@ -6,18 +6,12 @@ class Solution(object):
         """
         
         n = len(nums)
-        jumps = 0
-        end = 0
-        dist = 0
+        dp = [float('inf')] * n 
+        dp[0] = 0
 
-        for i in range(n - 1):
-            dist = max(dist, i + nums[i])
+        for i in range(n):
+            for j in range(1, nums[i] + 1):
+                if i + j < n:
+                    dp[i + j] = min(dp[i + j], dp[i] + 1)
 
-            if i == end:
-                jumps += 1
-                end = dist
-
-                if end >= n - 1: 
-                    break
-
-        return jumps
+        return dp[n-1]
